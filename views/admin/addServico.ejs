@@ -1,0 +1,27 @@
+<%- include('../includes/header') %>
+    <style>
+        main{
+            margin-top: 20px;
+            margin: 30px;
+        }
+        div{
+            padding-top: 10px;
+        }
+        button{
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <main>
+        <form action="/admin/addServico" method="POST">
+            <div>
+                <label for="nome">Nome Serviço</label><br>
+                <input type="text" name="nome">
+            </div>
+            <button type="submit">Criar Serviço</button>
+        </form>
+    </main>    
+</body>
+</html>

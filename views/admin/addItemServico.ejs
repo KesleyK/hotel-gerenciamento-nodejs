@@ -1,0 +1,32 @@
+<%- include('../includes/header') %>
+    <style>
+        main{
+            margin-top: 20px;
+            margin: 30px;
+        }
+        div{
+            padding-top: 10px;
+        }
+        button{
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <main >
+        <form action="/admin/addItemServico" method="POST">
+            <div>
+                <label for="nome">Nome</label><br>
+                <input type="text" name="nome">
+            </div>
+            <div>
+                <label for="nome">Preço</label><br>
+                <input type="number" name="preco">
+            </div>
+            <input type="hidden" name="itemServicoNome" value="<%= itemServicoNome %>">
+            <button type="submit">Criar Item</button>
+        </form>
+    </main>    
+</body>
+</html>

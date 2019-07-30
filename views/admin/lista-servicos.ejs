@@ -1,0 +1,47 @@
+<%- include('../includes/header') %>
+    <link rel="stylesheet" href="/css/button-form.css">
+    <style>
+        .main-list{
+            max-width: 700;
+            margin: 20px auto 0;
+            padding: 0 20px;
+        }
+        .main-list article {
+            background: #FFF;
+            border: 3px solid rgb(255, 233, 193);
+            border-radius: 5x;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .main-list h1 {
+            font-family: Georgia, Times, 'Times New Roman', serif;
+            font-size: 30px;
+        }
+        .clean{
+            margin-left: 30px;
+        }
+        article a{
+            margin-left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <% if(servicos.length > 0){ %>
+        <ul class="main-list">
+            <% for(servico of servicos){ %>
+                <article>
+                    <h1><%= servico.nome %></h1>
+                    <a href="/admin/itensServico/<%= servico.nome %>">Solicitar Item</a>
+                    <a href="/admin/addItemServico/<%= servico.nome %>">Inserir Item</a>
+                </article>
+            <% } %>
+        </ul>
+    <% } 
+    else { %>
+        <h2 class="clean">Nenhum serviço adicionado.</h2>
+    <% } %>
+
+</body>
+</html>

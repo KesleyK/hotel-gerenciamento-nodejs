@@ -1,0 +1,75 @@
+<%- include('../includes/header') %>
+    <link rel="stylesheet" href="/css/button-form.css">
+    <style>
+        main{
+            margin: 30px;
+            background: #FFF;
+            border: 3px solid rgb(255, 233, 193);
+            border-radius: 5x;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .centered{
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        .conta{
+            
+            padding-bottom: 30px;
+        }
+        .conta ul li{
+            margin-left: 80px;
+            margin-bottom: 20px;
+        }
+        .conta h1{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: orangered;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <main >
+        <% if(usuario) { %>
+            <p><strong>Hóspede: </strong><%= usuario.nome %></p>
+            <p><strong>Quarto: </strong><%= usuario.quartoNumQuarto %></p>
+            <p><strong>Gastos Serviços: </strong>R$<%= usuario.gastoServico %></p>
+            <p><strong>Valor Total Diária: </strong>R$<%= valorTotalDiaria %></p>
+            <p><strong>Fatura Total: </strong>R$<%= valorTotalDiaria + usuario.gastoServico %></p>
+            <p><strong>Data Check-In: </strong><%= usuario.dataCheckin %></p>
+            <p><strong>Data Check-Out: </strong><%= usuario.dataCheckout %></p>
+        <% } 
+        else { %>
+            <h2>Usuário não encontrado.</h2>
+        <% } %>    
+    </main>
+        
+        <% if(itensServico.length > 0){ %>
+            <div class="conta">
+                <h1>Gastos de Serviços</h1>
+                <ul>
+                    <% itensServico.forEach(item => { %>
+                        <li>
+                            <strong>Item:</strong> <%= item.nome %> (<%= item.itemPedido.quantity %>)<br>
+                            <strong>Preço:</strong> <%= item.preco %> 
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+
+        <% if(usuario) { %>
+            <article class="centered">
+                <form action="/quitar-gastoServico" method="post">
+                    <input type="hidden" name="cpfUsuario" value="<%= usuario.cpf %>">
+                    <button type="submit">Quitar Gastos Serviços</button><br>  
+                </form>
+                <form action="/quitar-gastoHotel" method="post">
+                    <input type="hidden" name="cpfUsuario" value="<%= usuario.cpf %>">
+                    <button>Quitar Gastos Serviços / Deixar Hotel</button>
+                </form>
+            </article>
+        <% } %>
+</body>
+</html>

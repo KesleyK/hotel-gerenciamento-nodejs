@@ -1,0 +1,60 @@
+<%- include('../includes/header') %>
+    <style>
+        .redText{
+            color: red;
+        }
+        p{
+           float:none;
+        }
+        p{
+           display:inline;
+        }
+        div{
+            margin-top: 5px;
+        }
+        button{
+            margin-top: 15px;
+        }
+        main{
+            margin-left: 60px;
+        }
+    </style>
+
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <div>
+        <ul>
+            <li>Quarto #<%= quarto.numQuarto %></li>
+            <li>Diária: R$<%= quarto.precoDiaria %></li>
+        </ul>
+    </div>
+    <hr>
+    <main>
+        <form action="/alugar-quarto" method="POST">
+            <div>
+                <p class="redText">*</p>Nome<br>
+                <input type="text" name="nome">
+            </div>
+            <div>
+                <p class="redText">*</p><label for="cpf">CPF</label><br>
+                <input type="text" name="cpf">
+            </div>
+            <div>
+                <p class="redText">*</p><label for="email">E-mail</label><br>
+                <input type="text" name="email">
+            </div>
+            <div>
+                <p class="redText">*</p><label for="dataCheckin">Data Check-in</label><br>
+                <input type="date" name="dataCheckin">
+            </div>
+            <div>
+                <p class="redText">*</p><label for="dataCheckout">Data Check-out</label><br>
+                <input type="date" name="dataCheckout">
+            </div>
+            <input type="hidden" value="<%= quarto.numQuarto %>" name="numQuarto">
+            <button type="submit">Alugar</button>
+        </form>
+    </main>    
+</body>
+</html>

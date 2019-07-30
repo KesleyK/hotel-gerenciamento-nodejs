@@ -1,0 +1,27 @@
+<%- include('../includes/header') %>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <% if(itensServico.length > 0){ %>
+        <ul class="main-list">
+            <% for(itemServico of itensServico){ %>
+                <article>
+                        <h1><%= itemServico.nome %> R$<%= itemServico.preco %></h1>
+                        <form action="/admin/itensServico/<%= servico %>/<%= itemServico.nome %>" method="POST">
+                            <label for="cpfHospede">CPF Hospede</label>
+                            <input type="text" name="cpfHospede">
+                            <input type="hidden" name="valorItemServico" value="<%= itemServico.preco %>">
+                            <input type="hidden" name="itemServicoId" value="<%= itemServico.id %>">
+                            <button type="submit">Solicitar</button>
+                        </form><br>
+                        <hr>
+                </article>
+            <% } %>
+        </ul>
+    <% } 
+    else { %>
+        <h2 style="margin: 30px;">Nenhum item adicionado.</h2>
+    <% } %>
+
+</body>
+</html>

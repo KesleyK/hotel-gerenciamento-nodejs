@@ -1,0 +1,42 @@
+<%- include('../includes/header') %>
+    <style>
+        main{
+            background-color: goldenrod;
+            text-align: center;
+            border-radius: 5%;
+            margin-left: 150px;
+            margin-right: 150px;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            border: 2px solid gold
+        }
+        body{
+            background-image: url("https://gartic.com.br/imgs/mural/an/ani_cherry/hotel.png");
+        }
+        button{
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <main class="centered">
+        <h1>Hotel - Primeiros Passos (Criação)</h1>
+        <form action="/admin/criacao" method="post">
+            <div>
+                <label for="title">Nome Hotel</label><br>
+                <input type="text" name="nome">
+            </div>
+            <div>
+                <label for="localizacao">Localização</label><br>
+                <input type="text" name="localizacao">
+            </div>
+            <div>
+                <label for="telefone">Telefone</label><br>
+                <input type="int" name="telefone">
+            </div>
+            <button type="submit">Iniciar</button>
+        </form>
+    </main>
+</body>
+</html>

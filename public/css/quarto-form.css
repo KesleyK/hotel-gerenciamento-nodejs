@@ -1,0 +1,40 @@
+.main-list{
+    max-width: 700;
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+
+.main-list article {
+    background: #FFF;
+    border: 3px solid rgb(255, 233, 193);
+    border-radius: 5x;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.main-list article p {
+    font-size: 16px;
+    color: #999;
+    margin-top: 5px;
+    line-height: 24px;
+}
+
+.main-list article button {
+    height: 42px;
+    width: 102px;
+    border-radius: 5px;
+    border: 2px solid #da552f;
+    background: none;
+    margin-top: 10px;
+    color: #da552f;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.main-list article button:hover {
+    background: #da552f;
+    color: #fff;
+    cursor: grab;
+}

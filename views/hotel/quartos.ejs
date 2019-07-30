@@ -1,0 +1,56 @@
+<%- include('../includes/header') %>
+    <link rel="stylesheet" href="/css/quarto-form.css">
+    <style>
+        .numQuarto{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 25px;
+        }
+        .centered{
+            text-align: center;
+        }
+        #nothingThere{
+            margin-left: 30px;
+        }
+        .main-list article img{
+            float: right;
+            width: 32px;
+            opacity: 0.6;
+            transition: 0.15s;
+        }
+
+        .main-list article img:hover {
+            opacity: 1.0;
+            filter: alpha(opacity=100); /* For IE8 and earlier */
+        }
+    </style>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    
+    <% if(quartos.length > 0){ %>
+        <ul class="main-list">
+            <% for(let quarto of quartos) { %>
+                <article>
+                    <a href="/quartos/<%= quarto.numQuarto %>">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyrsmHcvFKJ5o2YCMjJP9fSVQPE6fKy5CprWgTd7E4_ZROnl9mKg" alt="info">
+                    </a>
+                    <h2 class="numQuarto">Quarto #<%= quarto.numQuarto %></h2>
+                    <strong>Diária:</strong> R$<%= quarto.precoDiaria %>
+                <% if(!quarto.alugadoBool){ %>
+                    <p style="color: green">Quarto vazio</p>
+                    <form class="centered" action="/alugar-quarto/<%= quarto.numQuarto %>" method="GET">
+                        <button type="submit">Alugar</button>
+                    </form>
+                <% }
+                else { %>
+                    <p style="color: red">Quarto alugado</p>
+                    <% } %>
+                </article>
+            <% } %>
+        </ul>
+    <% } 
+    else { %>
+        <h2 id="nothingThere">Nenhum quarto adicionado.</h2>
+    <% } %>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<%- include('../includes/header') %>
+    <style>
+        .centered{
+            margin-top: 30px;
+            text-align: center
+        }
+        button{
+            margin-top: 10px;
+        }
+        h1{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <main class="centered">
+        <h1>Área do Usuário</h1>
+        <form action="/dados-usuario" method="POST">
+            <div>
+                <label for="cpf">CPF</label><br>
+                <input type="text" name="cpf">
+            </div>
+            
+            <button>Acessar</button>
+        </form>
+    </main>
+</body>
+</html>

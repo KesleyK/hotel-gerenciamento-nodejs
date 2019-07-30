@@ -1,0 +1,36 @@
+<%- include('../includes/header') %>
+    <link rel="stylesheet" href="/css/button-form.css">
+    <style>
+        main{
+            margin: 30px;
+            background: #FFF;
+            border: 3px solid rgb(255, 233, 193);
+            border-radius: 5x;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .centered{
+            text-align: center;
+        }
+        .checkout{
+            display: inline;
+        }
+        .destacado-verde{
+            display: inline;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../includes/navigation') %>
+    <main >
+        <p><strong>Quarto: </strong><%= quarto.numQuarto %></p>
+        <p><strong>Diária: </strong>R$<%= quarto.precoDiaria %></p>
+        <% if(hospede){ %>
+            <p><strong>Hóspede CPF: </strong><%= hospede.cpf %></p>
+            <p class="checkout"><strong>Quarto alugado até</strong> </p>
+            <p class="destacado-verde"><%= hospede.dataCheckout %></p>
+        <% } %>
+    </main>
+</body>
+</html>

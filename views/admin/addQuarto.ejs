@@ -1,0 +1,27 @@
+<%- include('../includes/header') %>
+</head>
+    <style>
+        main{
+            margin: 30px;
+        }   
+        button{
+            margin-top: 10px;
+        }     
+    </style>
+<body>
+    <%- include('../includes/navigation') %>
+    <main>
+        <form action="/admin/addQuarto" method="POST">
+            <div>
+                <label for="numQuarto">Número do Quarto</label><br>
+                <input type="number" name="numQuarto">
+            </div>
+            <div>
+                <label for="precoDiaria">Preço Diária</label><br>
+                <input type="number" name="precoDiaria">
+            </div>
+            <button type="submit">Adicionar</button>
+        </form>
+    </main>
+</body>
+</html>
